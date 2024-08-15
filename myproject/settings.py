@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-a=786_aw(9$vhv=we^wy-y_fl#rknpi=nd-nzp92u4fs8pq8c+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,6 +118,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+#################################################################
+# for deployment
+import os
+##  keeep as staticfiles for jasmine
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new
+STATICFILES_DIRS  = [os.path.join(BASE_DIR, 'static')]  # new
+#################################################################
+#################################################################
+# for images in models
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#################################################################
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
